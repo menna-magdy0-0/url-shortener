@@ -7,7 +7,7 @@ import { nanoid } from 'nanoid';
 export class UrlsService {
   constructor(private prisma: PrismaService) {}
   async create(createUrlDto: CreateUrlDto) {
-  const shortCode = nanoid(6);
+  const shortCode = nanoid(10);
 
     return await this.prisma.shortUrl.create({
       data: {

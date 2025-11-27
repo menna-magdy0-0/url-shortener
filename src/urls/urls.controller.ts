@@ -14,10 +14,10 @@ export class UrlsController {
     return result;
   }
   //for testing purposes
-  // @Get()
-  // findAll() {
-  //   return this.urlsService.findAll();
-  // }
+  @Get()
+  findAll() {
+    return this.urlsService.findAll();
+  }
 
   @Get(':shortCode')
   async find(@Param('shortCode') shortCode: string) {
