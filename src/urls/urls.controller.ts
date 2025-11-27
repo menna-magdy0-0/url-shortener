@@ -13,11 +13,11 @@ export class UrlsController {
     const result = await this.urlsService.create(createUrlDto);
     return result;
   }
-
-  @Get()
-  findAll() {
-    return this.urlsService.findAll();
-  }
+  //for testing purposes
+  // @Get()
+  // findAll() {
+  //   return this.urlsService.findAll();
+  // }
 
   @Get(':shortCode')
   async find(@Param('shortCode') shortCode: string) {
