@@ -1,4 +1,5 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete, Put } from '@nestjs/common';
+import { Controller, Get, Post, Body, Patch, Param, Delete, Put, Res } from '@nestjs/common';
+import type { Response } from 'express';
 import { UrlsService } from './urls.service';
 import { CreateUrlDto } from './dto/create-url.dto';
 import { UpdateUrlDto } from './dto/update-url.dto';
@@ -40,5 +41,16 @@ export class UrlsController {
   @Get(':shortCode/stats')
   async stats(@Param('shortCode') shortCode: string) {
     return this.urlsService.getStats(shortCode);
+  }
+
+  @Get('r/:shortCode')
+  async redirect(
+    @Param('shortCode') shortCode: string,
+    @Res() res: Response,
+  ) {
+    const url = await this.urlsService.findOne(shortCode);
+    await this.urlsService.incrementAccess(shortCode);
+
+    return res.redirect(url.url);
   }
 }
