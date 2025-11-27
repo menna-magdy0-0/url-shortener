@@ -7,18 +7,18 @@ import { nanoid } from 'nanoid';
 export class UrlsService {
   constructor(private prisma: PrismaService) {}
   async create(createUrlDto: CreateUrlDto) {
-    const shortCode = nanoid(6);
+  const shortCode = nanoid(6);
 
-    return this.prisma.shortUrl.create({
+    return await this.prisma.shortUrl.create({
       data: {
-        url: createUrlDto.url,
         shortCode,
+        url: createUrlDto.url,
       },
     });
   }
 
   findAll() {
-    return `This action returns all urls`;
+    return this.prisma.shortUrl.findMany();
   }
 
   async findOne(shortCode: string) {
