@@ -13,8 +13,8 @@ import * as redisStore from 'cache-manager-ioredis-yet';
       isGlobal: true,
     }),
     CacheModule.registerAsync({
+      isGlobal: true,
       useFactory: () => ({
-        isGlobal: true,
         store: redisStore,
         host: 'localhost',
         port: 6379,
