@@ -71,10 +71,10 @@ model ShortUrl {
 ```
 
 
-# 📡 API Endpoints
+# API Endpoints
 
 
-### ▶️ Create Short URL
+###  Create Short URL
 
 **POST /urls**
 
@@ -99,9 +99,11 @@ model ShortUrl {
 
 ---
 
-### ▶️ Get All URLs
+### Get All URLs
 
 **GET /urls**
+
+### Response:
 ```json
 [
   {
@@ -119,7 +121,7 @@ model ShortUrl {
 ]
 ```
 
-### ▶️ Get URL by shortCode
+###  Get URL by shortCode
 
 **GET /urls/:shortCode**
 
@@ -136,19 +138,19 @@ model ShortUrl {
 
 ---
 
-### 🔁 Redirect to original URL
+### Redirect to original URL
 
 **GET /urls/r/:shortCode**
 
 Redirects using:
 
-✔ Cache (Memory → Redis)
+✔ Cache (Redis)
 ✔ DB fallback
 ✔ Increments access count
 
 ---
 
-### 📈 Get stats
+### Get stats
 
 **GET /urls/:shortCode/stats**
 
@@ -170,7 +172,7 @@ Same as `findOne` but used for analytics.
 
 ---
 
-### ❌ Delete URL
+### Delete URL
 
 **DELETE /urls/:shortCode**
 
@@ -182,7 +184,7 @@ Same as `findOne` but used for analytics.
 }
 ```
 
-## ⚡ Caching
+## Caching
 
 This project uses **Redis** for caching:
 
