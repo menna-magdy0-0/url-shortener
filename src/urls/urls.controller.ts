@@ -48,7 +48,7 @@ export class UrlsController {
     @Param('shortCode') shortCode: string,
     @Res() res: Response,
   ) {
-    const url = await this.urlsService.findOne(shortCode);
+    const url = await this.urlsService.findOne(shortCode) as { url: string };
     await this.urlsService.incrementAccess(shortCode);
 
     return res.redirect(url.url);
