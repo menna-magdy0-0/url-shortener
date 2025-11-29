@@ -22,7 +22,6 @@ export class UrlsService {
       
     });
     await this.cacheManager.set(`url-${shortCode}`, createdUrl);
-    console.log('Cache hit after create:', await this.cacheManager.get(`url-${shortCode}`));
     return createdUrl;
   }
 
@@ -58,7 +57,6 @@ export class UrlsService {
         },
       });
       await this.cacheManager.set(`url-${shortCode}`, updatedUrl);
-      console.log('Cache updated after update:', await this.cacheManager.get(`url-${shortCode}`));
       return updatedUrl;
     } catch {
       throw new NotFoundException('Short URL not found');
@@ -69,7 +67,6 @@ export class UrlsService {
     try {
       await this.prisma.shortUrl.delete({ where: { shortCode } });
       await this.cacheManager.del(`url-${shortCode}`);
-      console.log('Cache miss');
       return;
     } catch {
       throw new NotFoundException('Short URL not found');

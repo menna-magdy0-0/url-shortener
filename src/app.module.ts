@@ -18,7 +18,7 @@ import * as redisStore from 'cache-manager-ioredis-yet';
         store: redisStore,
         host: 'localhost',
         port: 6379,
-        ttl: 60*60, // 1 hour
+        ttl: 60_000, 
       }),
     }),
     PrismaModule,
