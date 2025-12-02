@@ -5,6 +5,7 @@ https://roadmap.sh/projects/url-shortening-service
 
 A scalable URL Shortening Service built using NestJS, Prisma ORM, PostgreSQL, and Redis caching. The project follows best backend practices and implements a fully functional system similar to real-world platforms like Bitly or TinyURL.
 The service generates short codes for long URLs, stores them in a database, caches lookups in Redis for speed, and tracks usage statistics.
+<img width="1181" height="748" alt="image" src="https://github.com/user-attachments/assets/8c330bb9-d1f2-4312-8e84-0550fed7243b" />
 
 ## Features
 
